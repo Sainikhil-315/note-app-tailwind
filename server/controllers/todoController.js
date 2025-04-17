@@ -1,6 +1,5 @@
 const Todo = require('../models/Todo');
 
-// Get all todos for a user
 exports.getAllTodos = async (req, res) => {
   try {
     const todos = await Todo.find({ user: req.user._id }).sort({ createdAt: -1 });
@@ -10,7 +9,6 @@ exports.getAllTodos = async (req, res) => {
   }
 };
 
-// Create a new todo
 exports.createTodo = async (req, res) => {
   try {
     const newTodo = new Todo({
@@ -24,7 +22,6 @@ exports.createTodo = async (req, res) => {
   }
 };
 
-// Toggle todo completed status
 exports.toggleTodoStatus = async (req, res) => {
   try {
     const todo = await Todo.findOne({ 
@@ -45,7 +42,6 @@ exports.toggleTodoStatus = async (req, res) => {
   }
 };
 
-// Delete a todo
 exports.deleteTodo = async (req, res) => {
   try {
     const result = await Todo.findOneAndDelete({
