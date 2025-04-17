@@ -9,13 +9,11 @@ const AuthForm = ({ isLogin, onSubmit, loading }) => {
   });
   const [errors, setErrors] = useState({});
 
-  // Handle Input Change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: '' }); // Clear error for the field
+    setErrors({ ...errors, [e.target.name]: '' }); 
   };
 
-  // Validate Input Fields
   const validate = () => {
     const newErrors = {};
     if (!isLogin && formData.username.trim().length < 3) {
@@ -30,14 +28,13 @@ const AuthForm = ({ isLogin, onSubmit, loading }) => {
     return newErrors;
   };
 
-  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({}); // Clear previous errors
+    setErrors({});
 
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors); // Set new errors
+      setErrors(validationErrors); 
       return;
     }
 

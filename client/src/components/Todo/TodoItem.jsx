@@ -1,6 +1,6 @@
 const TodoItem = ({ todo, onToggle, onDelete, loading }) => {
     return (
-      <div className="flex items-center justify-between p-4 mb-2 bg-white dark:bg-gray-700 rounded-lg shadow">
+      <div className={`flex items-center justify-between p-4 mb-2 dark:bg-gray-700 rounded-lg shadow ${todo.completed? "bg-green-700 dark:bg-green-700" : ""}`}>
         <div className="flex items-center space-x-3">
           <button
             onClick={() => onToggle(todo._id)}
